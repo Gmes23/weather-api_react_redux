@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
+  "engines": {
+    "node": "7.3.0"
+  },
   "repository": "https://github.com/Gmes23/weather-api_react_redux",
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
