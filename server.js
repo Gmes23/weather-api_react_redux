@@ -3,10 +3,10 @@ const path = require('path');
 const port = process.env.PORT || 8080;
 const app = express();
 
-app.use(express.static(_dirname));
+app.use(express.static(__dirname));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resove(_dirname, 'index.html'))
+    res.sendFile(path.resove(__dirname, 'index.html'))
 });
 
 app.listen(port);
