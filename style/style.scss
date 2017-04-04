@@ -1,0 +1,178 @@
+.container {
+  margin: 0 0 0 0;
+  width: 100%;
+  padding: 0;
+}
+
+.app-container {
+  overflow-y: hidden;
+
+  .app-content {
+    width: 90%;
+    margin: 3em auto 0 auto;
+    max-width: 1100px;
+  }
+}
+
+.nav-container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1100px;
+
+  .navbar-brand, .navbar-nav {
+    display: inline-block !important;
+    color: #fff;
+  }
+
+  .nav-item {
+    display: inline-block;
+    padding-left: 1em;
+
+    .nav-link {
+      color: #fff;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.input-group {
+  margin: 0 auto 4em auto !important;
+  max-width: 30em;
+}
+
+.city-module-container {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.city-module-container-hide {
+  display: none;
+}
+
+.city-module {
+  width: 90%;
+  max-width: 27em;
+  margin: 10em auto 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 2em 1em 3em 1em;
+}
+
+.city-name, .city-temp {
+  text-align: center;
+}
+
+.city-name {
+  font-size: 1.2em;
+  color: lighten(#000, 40%);
+}
+
+.city-temp {
+  font-size: 4em;
+}
+
+.city-metrics {
+  width: 100%;
+  margin: 1em auto 0 auto;
+
+  p {
+    font-size: 1em;
+  }
+}
+
+.city-metrics-col-1, .city-metrics-col-2 {
+  display: inline-block;
+  // width: 12em;
+  vertical-align: top;
+}
+
+.city-metrics-col-1 {
+  width: 45%;
+  margin-right: 20px;
+
+  p {
+    float: right;
+    text-align: left;
+  }
+
+  button {
+    float: right;
+    clear: both;
+  }
+}
+
+.city-metrics-col-2 {
+  width: 48%;
+  // margin-left: 1em;
+
+  button {
+    float: left;
+  }
+}
+
+.city-metrics {
+  span {
+    // font-weight: bold;
+  }
+}
+
+.btn-delete {
+  float: right;
+  background: #E06C75;
+  color: #fff;
+}
+
+h1, h4 {
+  text-align: center;
+}
+
+.input-group {
+  margin: 20px 0px;
+}
+
+.city-row {
+  cursor: pointer;
+}
+
+td, th {
+  vertical-align: middle !important;
+  text-align: center !important;
+  width: 180px;
+}
+
+td:first-of-type {
+  height: 200px;
+  width: 180px;
+}
+
+.city-stats-container div {
+  text-align: left;
+}
+
+.city-stats-container div:first-child {
+  float: none;
+  display: block;
+}
+
+.city-stats-container div:nth-child(2) {
+  float: none;
+  display: block;
+}
+
+@media only screen and (min-width: 1200px) {
+  .city-stats-container div:first-child {
+    float: left;
+  }
+
+  .city-stats-container div:nth-child(2) {
+    float: right;
+  }
+}

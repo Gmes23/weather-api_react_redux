@@ -2,50 +2,61 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
+import moment from 'moment';
+
+function date() {
+  return moment().add(5, 'days').format("LL");
+}
 
 class SearchBar extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = { term: ''};
+    this.state = { term: ''};
 
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-    }
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
 
-    onInputChange(event) {
-        console.log(event.target.value);
-        this.setState({ term: event.target.value })
-    }
+  onInputChange(event) {
+    this.setState({
+      term: event.target.value
+    })
+  }
 
-    onFormSubmit(event) {
-        event.preventDefault();
+  onFormSubmit(event) {
+    event.preventDefault();
+    this.props.fetchWeather(this.state.term);
+    this.setState({
+      term: ''
+    });
+  }
 
-        this.props.fetchWeather(this.state.term);
-        this.setState({ term: ''});
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.onFormSubmit} className="input-group">
+          <input
+            placeholder="Get a five-day forecast in your favorite cities"
+            className="form-control"
+            value={this.state.term}
+            onChange={this.onInputChange} />
+            <span className="input-group-btn">
+              <button type="submit" className="btn btn-secondary">Submit</button>
+            </span>
+        </form>
+        <h4>Weather from: Today to {date()}</h4>
+      </div>
+      );
+  }
+}
 
-        // We need to go and fetch weather data
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.onFormSubmit} className="input-group">
-                <input
-                placeholder="get a five-day forecast in your favorite cities"
-                className="form-control"
-                value={this.state.term}
-                onChange={this.onInputChange}
-                 />
-                <span className="input-group-btn">
-                    <button type="submit" className="btn btn-secondary">Submit </button>
-                </span>    
-            </form>
-        );
-    }
+SearchBar.propTypes = {
+  fetchWeather: React.PropTypes.func
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchWeather }, dispatch);
+  return bindActionCreators({ fetchWeather }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps) (SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);

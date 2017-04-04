@@ -1,18 +1,13 @@
 {
   "name": "redux-simple-starter",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "Weater with React",
   "main": "index.js",
-  "engines": {
-    "node": "7.3.0"
-  },
-  "repository": "https://github.com/Gmes23/weather-api_react_redux",
+  "repository": "",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
-    "postinstall": "webpack -p",
-    "start": "node server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,25 +18,30 @@
     "babel-preset-react": "^6.1.18",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
+    "css-loader": "^0.26.1",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
+    "node-sass": "^3.13.0",
     "react-addons-test-utils": "^0.14.7",
-    "webpack": "^1.12.9",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.15.2",
     "babel-preset-stage-1": "^6.1.18",
-    "express": "^4.15.2",
     "lodash": "^3.10.1",
-    "path": "^0.12.7",
+    "moment": "^2.17.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-google-maps": "^4.7.1",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",
-    "react-sparklines": "^1.4.2",
+    "react-sparklines": "^1.6.0",
     "redux": "^3.0.4",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "semantic-ui-react": "^0.61.10"
   }
 }

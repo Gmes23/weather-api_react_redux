@@ -1,51 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Chart from '../components/chart';
-import GoogleMap from '../components/google_map';
-
+import { bindActionCreators } from 'redux';
+import { changeShowCityModule, deleteCity } from '../actions/showCityModule';
+import { fetchCurrentWeather } from '../actions/index';
+import CityRow from '../components/city_row';
 
 class WeatherList extends Component {
-    renderWeather(cityData) {
-        const name = cityData.city.name;
-        const temps = cityData.list.map(weather => weather.main.temp);
-        const pressures = cityData.list.map(weather => weather.main.pressure);
-        const humidities = cityData.list.map(weather => weather.main.humidity);
-        const { lon, lat } = cityData.city.coord;
-        console.log(temps);
 
-        return (
-            <tr key={name}>
-                <td><GoogleMap lon={lon} lat={lat} /></td>
-                <td>
-                  <Chart data={temps} color="red" units="K" />
-                  <Chart data={pressures} color="blue" units="hPa" />
-                  <Chart data={humidities} color="orange" units="%" />                  
-                </td>
-            </tr>
-        );
-    }
+  render() {
 
-    render() {
-        return (
-            <table className="table table-hover">
-                <thead>
-                    <tr>
-                        <th>City</th>
-                        <th>Temp (K)</th>
-                        <th>Preassure (hPa)</th>
-                        <th>Humidity (%) </th>                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.weather.map(this.renderWeather)}
-                </tbody>
-            </table>
-        );
-    }
+    var cityRow = this.props.weather.map(cityData => {
+      return <CityRow
+              cityData={cityData}
+              changeShowCityModule={this.props.changeShowCityModule}
+              fetchCurrentWeather={this.props.fetchCurrentWeather}
+              key={cityData.city.name}/>
+    });
+
+    return (
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Temperature (°F)</th>
+            <th>Pressure (hPa)</th>
+            <th>Humidity (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cityRow}
+        </tbody>
+      </table>
+    );
+  }
 }
 
-function mapStateToProps({ weather }) {
-    return { weather };
+WeatherList.propTypes = {
+  weather: React.PropTypes.array,
+  changeShowCityModule: React.PropTypes.func
 }
 
-export default connect(mapStateToProps) (WeatherList);
+// whatever is returned here will show up as props on WeatherList
+function mapStateToProps(state) {
+  return {
+    weather: state.weather,
+    selectedCity: state.selectedCity
+   };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ changeShowCityModule, fetchCurrentWeather }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherList);
