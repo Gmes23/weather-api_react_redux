@@ -40,7 +40,6 @@ WeatherList.propTypes = {
   changeShowCityModule: React.PropTypes.func
 }
 
-// whatever is returned here will show up as props on WeatherList
 function mapStateToProps(state) {
   return {
     weather: state.weather,

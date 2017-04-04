@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../style/style.scss';
 
 const NavBar = () => (
-  <nav className="navbar navbar-dark bg-primary navbar-full">
+  <nav className="navbar navbar-dark bg-success navbar-full">
     <div className="nav-container">
     <a className="navbar-brand" href="#">Whether</a>
     <ul className="nav navbar-nav">

@@ -26,8 +26,3 @@ ReactDOM.render(
   </Provider>
   , document.querySelector('.container'));
 
-
-
-// ability to delete cities
-// create city detailed view with more information
-// add auth

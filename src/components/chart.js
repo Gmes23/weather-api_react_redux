@@ -27,7 +27,6 @@ export default (props) => {
       <div className="city-stats-container">
         <div>min: {min(props.data)}{props.units}</div>
         <div>max: {max(props.data)}{props.units}</div>
-        {/* <div>avg: {average(props.data)} {props.units}</div> */}
       </div>
     </div>
   );

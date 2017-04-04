@@ -11,7 +11,7 @@ export default class App extends Component {
       <div className="app-container">
         <NavBar />
         <div className="app-content">
-          <h1>Whether</h1>
+          <h1>Wheather</h1>
           <SearchBar />
           <WeatherList />
           <CityModule />
